@@ -25,24 +25,30 @@ function Presentation({
   const { title } = description
   return (
     <div className="presentation">
-
-      <h1>{title}</h1>
-      <aside>
-        <div className="authors">
-          <h3>Authors</h3>
-          { map((item) => <Author key={item.id} {...item} />, authors) }
-        </div>
-        <div className="track">
-          {trackName}
-        </div>
-        <div className="session-date">
-          {sessionDate}
-        </div>
-      </aside>
-      { map(
-        ({ id, label }) => <Section key={id} title={label} content={description[id]} />,
-        sections,
-      )}
+      <article>
+        <h1>{title}</h1>
+        <aside>
+          <div className="authors">
+            <h3>Authors</h3>
+            { map((item) => <Author key={item.id} {...item} />, authors) }
+          </div>
+          <div className="track">
+            {trackName}
+          </div>
+          <div className="session-date">
+            {sessionDate}
+          </div>
+          <div className="sessionID">
+            sessionID? Abstract ID?
+          </div>
+        </aside>
+        <abstract>
+        { map(
+          ({ id, label }) => <Section key={id} title={label} content={description[id]} />,
+          sections,
+        )}
+        </abstract>
+      </article>
     </div>
   )
 }
