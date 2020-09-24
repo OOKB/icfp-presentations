@@ -20,11 +20,16 @@ const sections = [
 ]
 
 function Presentation({
-  authors, description, sessionDate, trackName,
+  authors, description, sessionDate, sessionCode, trackName,
 }) {
   const { title } = description
   return (
     <div className="presentation">
+      <header>
+        <p>
+          Abstract Book / International Conference on Family Planning, Kigali, Rwanda 12–15 November 2018
+        </p>
+      </header>
       <article>
         <h1>{title}</h1>
         <aside>
@@ -33,20 +38,23 @@ function Presentation({
             { map((item) => <Author key={item.id} {...item} />, authors) }
           </div>
           <div className="track">
-            {trackName}
+            <h3>Track</h3>
+            <p>
+              {trackName}
+            </p>
           </div>
           <div className="session-date">
-            {sessionDate}
-          </div>
-          <div className="sessionID">
-            sessionID? Abstract ID?
+            <h3>Presentation Date</h3>
+            <p>
+              Presented as part of Session {sessionCode} on {sessionDate}
+            </p>
           </div>
         </aside>
         <abstract>
-        { map(
-          ({ id, label }) => <Section key={id} title={label} content={description[id]} />,
-          sections,
-        )}
+          { map(
+            ({ id, label }) => <Section key={id} title={label} content={description[id]} />,
+            sections,
+          )}
         </abstract>
       </article>
     </div>

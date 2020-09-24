@@ -30,7 +30,7 @@ function Author({
     <div className={getClassName(isPresenter, isChair)} title={id}>
       <p className="person">
         <span className="fullname">{fullName}</span>
-        { company && <span className="company">{ company }</span> }
+        { company && <span className="company">, { company }</span> }
       </p>
     </div>
   )
