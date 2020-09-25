@@ -129,7 +129,12 @@ article abstract {
 
 article abstract h2,
 article abstract .content p {
-    font-size: 112.5% !important;
+    font-size: 108.25% !important;
+}
+
+strong {
+  font-weight: inherit;
+  text-decoration: underline;
 }
 
 /** try to design up the asides section **/
