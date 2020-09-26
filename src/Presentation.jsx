@@ -1,7 +1,22 @@
 import { map } from 'lodash/fp'
 import React from 'react'
+import PropTypes from 'prop-types'
 import Author from './Author'
 import Section from './Section'
+
+function Track({ children }) {
+  return (
+    <div className="track">
+      <h3>Track</h3>
+      <p>
+        {children}
+      </p>
+    </div>
+  )
+}
+Track.propTypes = {
+  children: PropTypes.string.isRequired,
+}
 
 // 8239 trackFirstChoice
 // 8244 significanceBackground
@@ -20,9 +35,10 @@ const sections = [
 ]
 
 function Presentation({
-  authors, description, sessionDate, sessionCode, trackName,
+  authors, description, sessionDate, sessionCode, sessionName, trackName,
 }) {
   const { title } = description
+  const contentSections = sections.filter(({ id }) => !!description[id])
   return (
     <div className="presentation">
       <header>
@@ -33,27 +49,33 @@ function Presentation({
       <article>
         <h1>{title}</h1>
         <aside>
+          <div className="session">
+            <h3>Session</h3>
+            {sessionCode}
+            {sessionName}
+          </div>
           <div className="authors">
             <h3>Authors</h3>
             { map((item) => <Author key={item.id} {...item} />, authors) }
           </div>
-          <div className="track">
-            <h3>Track</h3>
-            <p>
-              {trackName}
-            </p>
-          </div>
+          {trackName && <Track>{trackName}</Track>}
           <div className="session-date">
             <h3>Presentation Date</h3>
             <p>
-              Presented as part of Session {sessionCode} on {sessionDate}
+              Presented as part of Session
+              {' '}
+              {sessionCode}
+              {' '}
+              on
+              {' '}
+              {sessionDate}
             </p>
           </div>
         </aside>
         <abstract>
           { map(
             ({ id, label }) => <Section key={id} title={label} content={description[id]} />,
-            sections,
+            contentSections,
           )}
         </abstract>
       </article>
