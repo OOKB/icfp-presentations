@@ -20,18 +20,16 @@ code {
   padding: 0;
 }
 
-
-
 /** basic page setup **/
 @page {
   size: 8.5in 11in; /* width height */
   size: letter;
   margin-top: 0.625in;
   margin-right: 0.5in;
-  margin-bottom: .625in;
+  margin-bottom: 0.5in;
   margin-left: 0.5in;
-  orphans: 2;
-  widows: 2;
+  orphans: 4;
+  widows: 4;
 }
 
 html,p,ul,ol,li,span {
@@ -55,6 +53,12 @@ ul,ol {
   margin-inline-start: 0;
   margin-inline-end: 0;
   padding-inline-start: 1.5rem;
+}
+
+img {
+  max-width: 80%;
+  display: block;
+  margin: .5em auto;
 }
 
 /** helps show things are working temporarily **/
@@ -92,7 +96,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-h2 {
+h2,
+section h2   {
   page-break-after: avoid;
 }
 
@@ -113,13 +118,13 @@ article h1 {
 }
 
 article aside {
-  width: 20%;
+  width: 18%;
   flex: 1;
   padding-right: .75rem;
 }
 
 article abstract {
-  width: 80%;
+  width: 82%;
   flex: 4;
   padding-left: .75rem;
   /**/
@@ -130,6 +135,32 @@ article abstract {
 article abstract h2,
 article abstract .content p {
     font-size: 108.25% !important;
+}
+
+article abstract .content a,
+article abstract .content p a {
+  color: black;
+}
+
+article abstract .content table {
+  width: 100% !important;
+  border-collapse: collapse;
+  margin: .5rem auto
+}
+
+article abstract .content h4 {
+  font-weight: inherit;
+}
+
+article abstract .content table th,
+article abstract .content table td {
+  padding: .15em .25em;
+  width: auto !important;
+}
+
+article abstract .content table th p,
+article abstract .content table td p {
+  text-indent: 0;
 }
 
 strong {
