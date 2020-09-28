@@ -3,14 +3,14 @@ import React from 'react'
 import Author from './Author'
 
 function Presentation({
-  authors, title, sessionCode
+  authors, title, id
 }) {
   return (
     <div className="toc">
       <section>
         <h1>
-          {sessionCode}
-          {' '}
+          {id}
+          {': '}
           {title}
         </h1>
         <div className="authors">
