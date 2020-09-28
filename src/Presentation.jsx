@@ -41,36 +41,28 @@ function Presentation({
   const contentSections = sections.filter(({ id }) => !!description[id])
   return (
     <div className="presentation">
-      <header>
-        <p>
-          Abstract Book / International Conference on Family Planning, Kigali, Rwanda 12–15 November 2018
-        </p>
-      </header>
       <article>
         <h1>{title}</h1>
         <aside>
-          <div className="session">
-            <h3>Session</h3>
-            {sessionCode}
-            {sessionName}
-          </div>
           <div className="authors">
             <h3>Authors</h3>
             { map((item) => <Author key={item.id} {...item} />, authors) }
           </div>
-          {trackName && <Track>{trackName}</Track>}
-          <div className="session-date">
-            <h3>Presentation Date</h3>
+          <div className="session">
+            <h3>Session</h3>
             <p>
-              Presented as part of Session
+              Part of
               {' '}
               {sessionCode}
+              {' '}
+              <i>{sessionName}</i>
               {' '}
               on
               {' '}
               {sessionDate}
             </p>
           </div>
+          {trackName && <Track>{trackName}</Track>}
         </aside>
         <abstract>
           { map(

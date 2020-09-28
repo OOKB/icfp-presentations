@@ -18,18 +18,37 @@ code {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
+  orphans: 4;
+  widows: 4;
 }
 
 /** basic page setup **/
 @page {
   size: 8.5in 11in; /* width height */
   size: letter;
-  margin-top: 0.625in;
+  margin-top: 0.75in;
   margin-right: 0.5in;
   margin-bottom: 0.5in;
   margin-left: 0.5in;
   orphans: 4;
   widows: 4;
+}
+
+@media print {
+  @page {
+    size: 8.5in 11in; /* width height */
+    size: letter;
+    margin-top: 0.75in;
+    margin-right: 0.5in;
+    margin-bottom: 0.5in;
+    margin-left: 0.5in;
+    orphans: 4;
+    widows: 4;
+  }
+  * {
+    orphans: 4;
+    widows: 4;
+  }
 }
 
 html,p,ul,ol,li,span {
@@ -59,6 +78,37 @@ img {
   max-width: 80%;
   display: block;
   margin: .5em auto;
+}
+
+/** rudimentary TOC **/
+#table-of-contents {
+  page-break-after: always;
+}
+
+#table-of-contents > h1,
+.toc {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid;
+  padding-bottom: 1rem;
+  page-break-inside: avoid;
+}
+
+.toc {
+
+  padding-left: 4rem;
+}
+.toc .authors > div,
+.toc .authors > div p {
+  display: inline;
+}
+.toc .authors > div p::after {
+  content: ", ";
+  display: inline;
+}
+
+.toc h1 {
+  page-break-after: avoid;
+  font-size: 1rem;
 }
 
 /** helps show things are working temporarily **/
@@ -107,6 +157,7 @@ article {
   position: relative;
   display:flex;
   flex-flow: row wrap;
+  hyphens: auto;
 }
 
 article h1 {
@@ -118,15 +169,13 @@ article h1 {
 }
 
 article aside {
-  width: 18%;
   flex: 1;
-  padding-right: .75rem;
+  padding-right: .66rem;
 }
 
 article abstract {
-  width: 82%;
   flex: 4;
-  padding-left: .75rem;
+  padding-left: .66rem;
   /**/
   /* columns: 2; */
   /* columns save a lot of space, but are no good from a tables perspective; nor a just a line or two going onto the next page persepctive */
