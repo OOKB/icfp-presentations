@@ -35,9 +35,9 @@ const sections = [
 ]
 
 function Presentation({
-  authors, description, id, sessionDate, sessionCode, sessionName, trackName,
+  authors, description, id, sessionDate, sessionCode, sessionName, trackName, title,
 }) {
-  const { title } = description
+  // const { title } = description
   const contentSections = sections.filter(({ id }) => !!description[id])
   return (
     <div className="presentation">
