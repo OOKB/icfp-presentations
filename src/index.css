@@ -35,7 +35,7 @@ code {
 }
 
 html,p,ul,ol,li,span {
-  font: 9pt/1.25 "Gentona Book", GentonaBook, "Gentona", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font: 9pt/1.2 "Gentona Book", GentonaBook, "Gentona", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   font-weight: 300;
 }
 
@@ -86,7 +86,7 @@ img {
 }
 
 .toc .authors > div p::after {
-  content: ", ";
+  content: "; ";
   display: inline;
 }
 
@@ -122,7 +122,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h2,
 section h2   {
-  page-break-after: avoid;
+  page-break-after: avoid !important;
 }
 
 /** trying to layout some things **/
@@ -137,22 +137,19 @@ article {
 article h1 {
   width: 100%;
   flex: auto;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid;
 }
 
 article aside {
   flex: 1;
-  padding-right: .66rem;
+  padding-right: .6rem;
 }
 
 article abstract {
   flex: 4;
-  padding-left: .66rem;
-  /**/
-  /* columns: 2; */
-  /* columns save a lot of space, but are no good from a tables perspective; nor a just a line or two going onto the next page persepctive */
+  padding-left: .6rem;
 }
 
 article abstract h2,
@@ -218,239 +215,4 @@ article abstract ol {
 
 article abstract p + p {
   text-indent: 2rem;
-}
-
-
-@media print {
-  @page {
-    size: 8.5in 11in; /* width height */
-    size: letter;
-    margin-top: 0.75in;
-    margin-right: 0.5in;
-    margin-bottom: 0.5in;
-    margin-left: 0.5in;
-    orphans: 4;
-    widows: 4;
-  }
-  
-  * {
-    orphans: 4;
-    widows: 4;
-  }
-
-  body {
-    margin: 0;
-    padding: 0;
-  }
-
-  /** paste it all in here again??? **/
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-
-  *, 
-  *::before, 
-  *::after {
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
-    orphans: 4;
-    widows: 4;
-  }
-
-  html,p,ul,ol,li,span {
-    font: 9pt/1.25 "Gentona Book", GentonaBook, "Gentona", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-    font-weight: 300;
-  }
-
-  body {
-    font-size: 1rem;
-  }
-
-  html,
-  body {
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  ul,ol {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-    padding-inline-start: 1.5rem;
-  }
-
-  img {
-    max-width: 80%;
-    display: block;
-    margin: .5em auto;
-  }
-
-  /** rudimentary TOC **/
-  #table-of-contents {
-    page-break-after: always;
-  }
-
-  #table-of-contents > h1,
-  .toc {
-    margin-bottom: 1rem;
-    border-bottom: 1px solid;
-    padding-bottom: 1rem;
-    page-break-inside: avoid;
-  }
-
-  .toc {
-    padding-left: 4rem;
-  }
-
-  .toc .authors > div,
-  .toc .authors > div p {
-    display: inline;
-  }
-
-  .toc .authors > div p::after {
-    content: ", ";
-    display: inline;
-  }
-
-  .toc h1 {
-    page-break-after: avoid;
-    font-size: 1rem;
-  }
-
-  /** helps show things are working temporarily **/
-  .presentation {
-    page-break-after: always;
-  }
-
-  .presentation header {
-    width: 100%;
-    padding: 0 0 .75rem 0;
-  }
-
-  h1 {
-    font-size: 1.25rem;
-  }
-
-  h2, h3, h4, h5, h6 {
-    font-size: 1rem;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: "Gentona Book", GentonaBook, "Gentona", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin: 0;
-    page-break-after: avoid !important;
-    font-weight: 700;
-  }
-
-  h2,
-  section h2   {
-    page-break-after: avoid;
-  }
-
-  /** trying to layout some things **/
-  article {
-    width: 100%;
-    position: relative;
-    display:flex;
-    flex-flow: row wrap;
-    hyphens: auto;
-  }
-
-  article h1 {
-    width: 100%;
-    flex: auto;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid;
-  }
-
-  article aside {
-    flex: 1;
-    padding-right: .66rem;
-  }
-
-  article abstract {
-    flex: 4;
-    padding-left: .66rem;
-    /**/
-    /* columns: 2; */
-    /* columns save a lot of space, but are no good from a tables perspective; nor a just a line or two going onto the next page persepctive */
-  }
-
-  article abstract h2,
-  article abstract .content p {
-      font-size: 106.18% !important;
-  }
-
-  article abstract .content a,
-  article abstract .content p a {
-    color: black;
-  }
-
-  article abstract .content table {
-    width: 100% !important;
-    border-collapse: collapse;
-    margin: .5rem auto
-  }
-
-  article abstract .content h4 {
-    font-weight: inherit;
-  }
-
-  article abstract .content table th,
-  article abstract .content table td {
-    padding: .15em .25em;
-    width: auto !important;
-  }
-
-  article abstract .content table th p,
-  article abstract .content table td p {
-    text-indent: 0;
-  }
-
-  strong {
-    font-weight: inherit;
-    text-decoration: underline;
-  }
-
-  /** try to design up the asides section **/
-
-  article aside > div {
-    border-bottom: 1px solid;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  article aside .authors .presenter,
-  article aside .authors .author {
-    margin-left: 1.25rem;
-    text-indent: -1.25rem;
-  }
-
-  article abstract section {
-    margin-bottom: 1rem;
-    /* break-inside: avoid-page; */
-  }
-
-  article abstract ul,
-  article abstract ol {
-    margin-top: .5rem;
-    margin-bottom: .5rem;
-  }
-
-  article abstract p + p {
-    text-indent: 2rem;
-  }
 }
