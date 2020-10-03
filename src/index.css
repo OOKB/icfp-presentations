@@ -35,7 +35,7 @@ code {
 }
 
 html,p,ul,ol,li,span {
-  font: 9pt/1.2 "Gentona Book", GentonaBook, "Gentona", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font: 9pt/1.25 "Gentona Book", GentonaBook, "Gentona", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   font-weight: 300;
 }
 
@@ -70,9 +70,9 @@ img {
 
 #table-of-contents > h1,
 .toc {
-  margin-bottom: 1rem;
+  margin-bottom: 0.625rem;
   border-bottom: 1px solid;
-  padding-bottom: 1rem;
+  padding-bottom: 0.625remççç;
   page-break-inside: avoid;
 }
 
@@ -93,6 +93,7 @@ img {
 .toc h1 {
   page-break-after: avoid;
   font-size: 1rem;
+  line-height: 1.25;
 }
 
 /** helps show things are working temporarily **/
@@ -154,7 +155,7 @@ article abstract {
 
 article abstract h2,
 article abstract .content p {
-    font-size: 106.18% !important;
+    font-size: 108.25% !important;
 }
 
 article abstract .content a,
@@ -204,7 +205,7 @@ article aside .authors .author {
 
 article abstract section {
   margin-bottom: 1rem;
-  /* break-inside: avoid-page; */
+  break-inside: avoid-page;
 }
 
 article abstract ul,

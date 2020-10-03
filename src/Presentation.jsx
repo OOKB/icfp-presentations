@@ -29,9 +29,11 @@ const sections = [
   // { id: 'trackFirstChoice', label: 'Track' },
   { id: 'mainQuestionHypothesis', label: 'Main question/hypothesis' },
   { id: 'significanceBackground', label: 'Significance/background' },
+  { id: 'programInterventionActivityTested', label: 'Program Intervention/activity tested'},
   { id: 'methodology', label: 'Methodology' },
   { id: 'resultsKeyFindings', label: 'Results/key findings' },
   { id: 'knowledgeContribution', label: 'Knowledge contribution' },
+  { id: 'programImplicationsLessonsLearned', label: 'Program implications/lessons learned'}
 ]
 
 function Presentation({
